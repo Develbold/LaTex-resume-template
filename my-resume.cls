@@ -298,11 +298,13 @@
 \newcommand{\address}[1]{\infofield{\faAt}{#1}}
 \newcommand{\location}[1]{\infofield{\faMapMarker}{#1}}
 \newcommand{\phone}[1]{\infofield{\faPhone}{#1}}
+\newcommand{\noticeperiod}[1]{\infofield{\faCalendar}{#1}}
 \newcommand{\homepage}[2]{\infofield{\faHome}{\href{#2}{#1}}}
 \newcommand{\linkedin}[2]{\infofield{\faLinkedin}{\href{#2}{#1}}}
 \newcommand{\github}[2]{\infofield{\faGithub}{\href{#2}{#1}}}
 \newcommand{\orcid}[2]{\infofield{\aiOrcid}{\href{#2}{#1}}}
 \newcommand{\ads}[2]{\infofield{\aiADS}{\href{#2}{#1}}}
+
 
 
 % highlight bar
@@ -336,7 +338,7 @@
             \hspace{\dimexpr \marginleft+\marginright}%
             \@mainbar
         }{% if double layout, the highlight bar alternates
-            \ifthispageodd{% if the page is odd, the highlight bar is on the left (as is for single layout)
+            \Ifthispageodd{% if the page is odd, the highlight bar is on the left (as is for single layout)
                 \@highlightbar
                 \hspace{\dimexpr \marginleft+\marginright}%
                 \@mainbar
@@ -403,7 +405,42 @@
     \par\normalsize
     \vspace{0.5em}
 }
-
+\newcommand{\jobextend}[5]{%
+    \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
+        \footnotesize
+        \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
+            \makebox[3mm][c]{\faCalendar}
+        \end{minipage}%
+        \hspace{0.5em}%
+        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap date in minipage to allow multi-line dates
+            #1
+        \end{minipage}%
+        \par
+        \vspace{0.1em}
+        \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line places
+            \makebox[3mm][c]{\faMapMarker}
+        \end{minipage}%
+        \hspace{0.5em}%
+        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap place in minipage to allow multi-line places
+            #2
+        \end{minipage}%
+        \par
+        \vspace{0.1em}
+        \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line sectors
+            \makebox[3mm][c]{\faIndustry}
+        \end{minipage}%
+        \hspace{0.5em}%
+        \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap place in minipage to allow multi-line sectors
+            #3
+        \end{minipage}%
+    \end{minipage}%
+    \begin{minipage}[t]{\jobpositionlength}% minipage for position
+        {\large \color{emphasis} #4}
+    \end{minipage}%
+    \ifstrequal{#4}{}{}{\par \vspace{0.1em} \footnotesize #5}
+    \par\normalsize
+    \vspace{0.5em}
+}
 
 % skill with 5 dot bar chart
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

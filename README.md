@@ -3,6 +3,7 @@
 This LaTeX template is a fork of (https://github.com/GiantMolecularCloud/my-resume) and adds the following sections:
 * job section is extended with industry or sector
 * notice period section
+* voluntary work
 
 # Example PDF
 

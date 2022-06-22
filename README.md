@@ -18,7 +18,3 @@ Depending on the options for my-resume, the highlight bar can alternate between 
 In this case, the highlight bar is left empty and appears as a grey block.
 
 ![Example PDF page 2](https://github.com/GiantMolecularCloud/my-resume/blob/main/resume-2.png "Example PDF page 2")
-
-Empty pages are possible as well.
-
-![Example PDF page 3](https://github.com/GiantMolecularCloud/my-resume/blob/main/resume-3.png "Example PDF page 3")
